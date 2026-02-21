@@ -1,2 +1,2 @@
 # Free-Parking
-A game by Christian &lt;LastName> &amp; Adrian &lt;LastName>
+A game by Christian &amp; Adrian 
