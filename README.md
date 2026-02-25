@@ -3,4 +3,8 @@
 
 A game by Christian &amp; Adrian 
 
+Original Bitsy Game="file:///Users/chall/Documents/GitHub/Free-Parking/REFERENCE_MATERIAL/free_parking.html"
+
+Whiteboard for reference materials / inspo="https://www.canva.com/design/DAHCEAF12RM/6OzMehwp4B1iZr3SDhVQWw/edit?ui=e30"
+
 
