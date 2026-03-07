@@ -1,0 +1,24 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d3g2ng3ggkaa1"]
+
+[ext_resource type="Texture2D" uid="uid://d0krdx627cxde" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_SHEET.png" id="1_dlw3k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvsdy"]
+resource_name = "Background"
+texture = ExtResource("1_dlw3k")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0.7372549)
+1:0/0 = 0
+1:0/0/modulate = Color(1, 1, 1, 0.7372549)
+2:0/0 = 0
+2:0/0/modulate = Color(1, 1, 1, 0.7372549)
+0:1/0 = 0
+0:1/0/modulate = Color(1, 1, 1, 0.7372549)
+1:1/0 = 0
+1:1/0/modulate = Color(1, 1, 1, 0.7372549)
+2:1/0 = 0
+2:1/0/modulate = Color(1, 1, 1, 0.7372549)
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_fvsdy")
