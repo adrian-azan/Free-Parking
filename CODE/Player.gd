@@ -5,10 +5,14 @@ var audio_player: AudioStreamPlayer2D
 
 var DEBUG_coordinatesLabel: Label 
 
+var _speed: float
+
 
 func _ready() -> void:
 	DEBUG_coordinatesLabel = $DEBUG/coordinatesLabel
 	audio_player = $AudioStreamPlayer2D
+	
+	_speed = .1
 
 
 func _process(delta: float) -> void:
@@ -17,13 +21,13 @@ func _process(delta: float) -> void:
 	
 	var moving: Vector2 = Vector2.ZERO	
 	if Input.is_action_pressed("move_up"):
-		moving.y -= .1
+		moving.y -= _speed
 	if Input.is_action_pressed("move_down"):
-		moving.y += .1
+		moving.y += _speed
 	if Input.is_action_pressed("move_right"):
-		moving.x += .1
+		moving.x += _speed
 	if Input.is_action_pressed("move_left"):
-		moving.x -= .1
+		moving.x -= _speed
 		
 
 	# Per Frame Actions
