@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=4 uid="uid://cqovahrgu2xgm"]
+[gd_scene load_steps=3 format=4 uid="uid://cteugen0f40v5"]
 
-[ext_resource type="TileSet" uid="uid://d3g2ng3ggkaa1" path="res://ART/SPRITES/PROTOTYPE_TILESET.tres" id="1_tfmjn"]
+[ext_resource type="TileSet" uid="uid://d3g2ng3ggkaa1" path="res://ART/SPRITES/Prototype/PROTOTYPE_TILESET.tres" id="1_tfmjn"]
 [ext_resource type="PackedScene" uid="uid://b2m047wdkfa5y" path="res://SCENES/Player.tscn" id="2_fw8q6"]
 
 [node name="Root" type="Node2D"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2fa32ayou81o" path="res://CODE/Player.gd" id="1_667t4"]
 [ext_resource type="Texture2D" uid="uid://okshgtixiyhc" path="res://ART/SPRITES/Player.png" id="1_esb2h"]
-[ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://ART/SPRITES/PROTOTYPE_SPRITE_FRAMES.tres" id="3_4cgft"]
+[ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_FRAMES.tres" id="3_4cgft"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_667t4")

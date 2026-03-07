@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d3g2ng3ggkaa1"]
 
-[ext_resource type="Texture2D" uid="uid://d0krdx627cxde" path="res://ART/SPRITES/PROTOTYPE_SPRITE_SHEET.png" id="1_dlw3k"]
+[ext_resource type="Texture2D" uid="uid://d0krdx627cxde" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_SHEET.png" id="1_dlw3k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvsdy"]
 resource_name = "Background"
