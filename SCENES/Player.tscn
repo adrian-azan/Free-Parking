@@ -1,30 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2m047wdkfa5y"]
 
 [ext_resource type="Script" uid="uid://c2fa32ayou81o" path="res://CODE/Player.gd" id="1_667t4"]
-[ext_resource type="Texture2D" uid="uid://okshgtixiyhc" path="res://ART/SPRITES/Player.png" id="1_esb2h"]
-[ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_FRAMES.tres" id="3_4cgft"]
+[ext_resource type="Texture2D" uid="uid://drhn0jul06te" path="res://ART/SPRITES/CarSprite.jpeg" id="2_4cgft"]
+[ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://SCENES/PROTOTYPE_SPRITE_FRAMES.tres" id="3_4cgft"]
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+motion_mode = 1
 script = ExtResource("1_667t4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(93, 63.999996)
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("1_esb2h")
+position = Vector2(320, 211)
+scale = Vector2(0.1042857, 0.08517544)
+texture = ExtResource("2_4cgft")
 offset = Vector2(-3066.6667, -2466.6665)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="DEBUG" type="Node2D" parent="."]
-
-[node name="coordinatesLabel" type="Label" parent="DEBUG"]
-offset_left = -21.0
-offset_top = -44.0
-offset_right = 52.0
-offset_bottom = 3.0
-pivot_offset = Vector2(21, 82)
-theme_override_font_sizes/font_size = 16
-text = "(0,0)"
 
 [node name="background" type="AnimatedSprite2D" parent="DEBUG"]
 visible = false
