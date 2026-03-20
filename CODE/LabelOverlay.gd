@@ -5,13 +5,9 @@ extends Node2D
 
 
 func _ready() -> void:
-	_gridContainer = (ResourceLoader.load("res://SCENES/LabelOverlay.tscn") as PackedScene).instantiate()
+	_gridContainer = (ResourceLoader.load("res://SCENES/TOOLS/LabelOverlay.tscn") as PackedScene).instantiate()
 	add_child(_gridContainer)
 
-
-
-func GetPath() -> NodePath:
-	return get_path() 
 
 func SetLabel(idx: int, text: String):
 	if ( _gridContainer == null or idx < 0 or idx > _gridContainer.get_child_count()):
