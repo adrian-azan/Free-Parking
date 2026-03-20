@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2m047wdkfa5y"]
+
+[ext_resource type="Script" uid="uid://c2fa32ayou81o" path="res://CODE/PLAYER/PlayerCar.gd" id="1_667t4"]
+[ext_resource type="Texture2D" uid="uid://cgcyubf12bu5y" path="res://ART/SPRITES/CarSprite.png" id="2_4cgft"]
+[ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_FRAMES.tres" id="3_4cgft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cgft"]
+size = Vector2(81, 32)
+
+[node name="PlayerCar" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 4
+motion_mode = 1
+wall_min_slide_angle = 0.7853982
+script = ExtResource("1_667t4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 211)
+scale = Vector2(0.1042857, 0.08517544)
+texture = ExtResource("2_4cgft")
+offset = Vector2(-3066.6667, -2466.6665)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="DEBUG" type="Node2D" parent="."]
+
+[node name="background" type="AnimatedSprite2D" parent="DEBUG"]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_4cgft")
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4cgft")

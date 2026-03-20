@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://iuf6pqh5h2vp"]
+
+[node name="GridContainer" type="GridContainer"]
+offset_left = -465.0
+offset_top = 90.0
+offset_right = 585.0
+offset_bottom = 416.0
+theme_override_constants/h_separation = 185
+theme_override_constants/v_separation = 40
+columns = 3
+
+[node name="Label" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label2" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label3" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label4" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label5" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label6" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label7" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="Label8" type="Label" parent="."]
+z_index = 10
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
