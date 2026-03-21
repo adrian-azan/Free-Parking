@@ -23,7 +23,8 @@ var audio_player: AudioStreamPlayer2D
 # Vehicle Movement (Tid bit, usually if im '@export'ing, its also an indicator I can play around
 # 					withthese values in the _ready method to see it do different stuff to the player)
 ###
-@export var _maxVelocity: float
+@export var VELOCITY_X_CLAMP: Vector2
+@export var VELOCITY_Y_CLAMP: Vector2
 @export var _maxAcceleration: float
 var _currentAcceleration: Vector2 
 var _acceleration: float
@@ -47,16 +48,23 @@ var _acceleration: float
 var SPEEDING_DOWN_X: Tween
 var SPEEDING_DOWN_Y: Tween
 
+
+
+
 func _ready() -> void:
 	audio_player = $AudioStreamPlayer2D
 	
 	SPEEDING_DOWN_X = create_tween()
 	SPEEDING_DOWN_Y = create_tween()
+	SPEEDING_DOWN_X.kill()
+	SPEEDING_DOWN_Y.kill()
 	
-	_maxVelocity = 250.0 if _maxVelocity == 0 else _maxVelocity
 	_maxAcceleration = 40.0 if _maxAcceleration == 0 else _maxAcceleration;
 	_currentAcceleration = Vector2(0,0)
 	_acceleration = _maxAcceleration / 2;
+	
+	VELOCITY_X_CLAMP = Vector2(-250,250) if VELOCITY_X_CLAMP == Vector2.ZERO else VELOCITY_X_CLAMP
+	VELOCITY_Y_CLAMP = Vector2(-250,250) if VELOCITY_Y_CLAMP == Vector2.ZERO else VELOCITY_Y_CLAMP
 
 func Move(delta: float) -> void:
 	LabelOverlay.SetLabel(0, "Current Velocity: (%d, %d)" % [velocity.x, velocity.y])
@@ -95,8 +103,8 @@ func Move(delta: float) -> void:
 	
 	if (!SPEEDING_DOWN_X.is_valid() || !SPEEDING_DOWN_Y.is_valid()):
 		velocity += _currentAcceleration
-		velocity.x = clamp(velocity.x, -_maxVelocity, _maxVelocity)
-		velocity.y = clamp(velocity.y, -_maxVelocity, _maxVelocity)
+		velocity.x = clamp(velocity.x, VELOCITY_X_CLAMP.x, VELOCITY_X_CLAMP.y)
+		velocity.y = clamp(velocity.y, VELOCITY_Y_CLAMP.x, VELOCITY_Y_CLAMP.y)
 
 	
 	#Play sound when moving

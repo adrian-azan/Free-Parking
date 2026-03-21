@@ -3,10 +3,11 @@ extends Node2D
 var _inCar = true
 @onready var player = $Player
 @onready var playerCar = $PlayerCar
-@onready var camera = $PlayerCar/Camera2D
+@onready var camera = $PlayerCamera
 
 func _ready() -> void:
 	player.visible = false
+	camera.reparent(playerCar)
 	
 
 func _physics_process(delta: float) -> void:
