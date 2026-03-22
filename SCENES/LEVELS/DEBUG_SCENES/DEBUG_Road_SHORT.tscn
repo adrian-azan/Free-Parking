@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://c3g84suhiy6s8"]
+[gd_scene load_steps=6 format=4 uid="uid://c3g84suhiy6s8"]
 
 [ext_resource type="TileSet" uid="uid://d3g2ng3ggkaa1" path="res://ART/SPRITES/Prototype/PROTOTYPE_TILESET.tres" id="1_a6fgi"]
 [ext_resource type="PackedScene" uid="uid://b1glff3w2n75m" path="res://SCENES/OffScreenAnimatedSprite.tscn" id="4_mp4oa"]
-[ext_resource type="Script" uid="uid://00c628845aep" path="res://CODE/OffScreenAnimatedSprite_SingleFrame.gd" id="5_cuyu8"]
 [ext_resource type="PackedScene" uid="uid://b8bowafqutf4m" path="res://SCENES/PLAYER/PlayerCarManager.tscn" id="5_mtt05"]
 [ext_resource type="Script" uid="uid://v0nk2vdkw6ud" path="res://CODE/LapTracker.gd" id="6_mp4oa"]
 
@@ -18,17 +17,13 @@ tile_set = ExtResource("1_a6fgi")
 
 [node name="OffScreenAnimatedSprite" parent="." instance=ExtResource("4_mp4oa")]
 position = Vector2(-513, 200)
-script = ExtResource("5_cuyu8")
 
 [node name="OffScreenAnimatedSprite2" parent="." instance=ExtResource("4_mp4oa")]
 position = Vector2(-473, 59)
-script = ExtResource("5_cuyu8")
 
 [node name="FuqU" parent="." instance=ExtResource("4_mp4oa")]
 position = Vector2(-321, -37)
 animation = &"FuqU"
-script = ExtResource("5_cuyu8")
-_animationName = "FuqU"
 
 [node name="Label" type="Label" parent="."]
 offset_left = -535.0
@@ -48,5 +43,6 @@ position = Vector2(-138, 25.000008)
 shape = SubResource("CircleShape2D_0f0g5")
 
 [node name="PlayerAndCar" parent="." instance=ExtResource("5_mtt05")]
+position = Vector2(-547, -122)
 
 [connection signal="body_entered" from="Label/Area2D" to="Label" method="DisplayLap"]

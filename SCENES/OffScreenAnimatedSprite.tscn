@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1glff3w2n75m"]
+[gd_scene load_steps=3 format=3 uid="uid://b1glff3w2n75m"]
 
 [ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_FRAMES.tres" id="1_vmdlj"]
+[ext_resource type="Script" uid="uid://00c628845aep" path="res://CODE/OffScreenAnimatedSprite.gd" id="2_xpxyg"]
 
 [node name="OffScreenAnimatedSprite" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_vmdlj")
+script = ExtResource("2_xpxyg")
 
 [node name="OnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-54, -52, 117, 105)

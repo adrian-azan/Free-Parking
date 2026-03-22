@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Free Parking"
-run/main_scene="uid://4ntnkrk84t3f"
+run/main_scene="uid://c3g84suhiy6s8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
