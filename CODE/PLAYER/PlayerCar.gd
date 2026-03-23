@@ -23,9 +23,14 @@ var audio_player: AudioStreamPlayer2D
 # Vehicle Movement (Tid bit, usually if im '@export'ing, its also an indicator I can play around
 # 					withthese values in the _ready method to see it do different stuff to the player)
 ###
-@export var VELOCITY_X_CLAMP: Vector2
-@export var VELOCITY_Y_CLAMP: Vector2
+
+## Set a limit to the players final velocity for the X-Axis. Vector2(min, max)
+@export var velocityXClamp: Vector2
+## Set a limit to the players final velocity for the Y-Axis. Vector2(min, max)
+@export var velocityYClamp: Vector2
+## Set the limit to the players acceleration in all directions
 @export var _maxAcceleration: float
+
 var _currentAcceleration: Vector2 
 var _acceleration: float
 
@@ -47,7 +52,7 @@ var _acceleration: float
 ###
 var SPEEDING_DOWN_X: Tween
 var SPEEDING_DOWN_Y: Tween
-
+var _decelerationTime: float
 
 
 
@@ -58,18 +63,17 @@ func _ready() -> void:
 	SPEEDING_DOWN_Y = create_tween()
 	SPEEDING_DOWN_X.kill()
 	SPEEDING_DOWN_Y.kill()
+	_decelerationTime = .5
 	
 	_maxAcceleration = 40.0 if _maxAcceleration == 0 else _maxAcceleration;
 	_currentAcceleration = Vector2(0,0)
 	_acceleration = _maxAcceleration / 2;
 	
-	VELOCITY_X_CLAMP = Vector2(-250,250) if VELOCITY_X_CLAMP == Vector2.ZERO else VELOCITY_X_CLAMP
-	VELOCITY_Y_CLAMP = Vector2(-250,250) if VELOCITY_Y_CLAMP == Vector2.ZERO else VELOCITY_Y_CLAMP
+	# For Christian -> This is so that if we don't set the value in the editor, then -250,250 is the default velocity value
+	velocityXClamp = Vector2(-250,250) if velocityXClamp == Vector2.ZERO else velocityXClamp
+	velocityYClamp = Vector2(-250,250) if velocityYClamp == Vector2.ZERO else velocityYClamp
 
 func Move(delta: float) -> void:
-	LabelOverlay.SetLabel(0, "Current Velocity: (%d, %d)" % [velocity.x, velocity.y])
-	LabelOverlay.SetLabel(3, "Current Acceleration: %d" % [_acceleration])
-	
 
 	#When Pressed Actions
 	#####################
@@ -89,12 +93,12 @@ func Move(delta: float) -> void:
 		
 	if (moving.x == 0 and !SPEEDING_DOWN_X.is_valid()):
 		SPEEDING_DOWN_X = create_tween()
-		SPEEDING_DOWN_X.tween_property(self, "velocity:x", 0, .5)
+		SPEEDING_DOWN_X.tween_property(self, "velocity:x", 0, _decelerationTime)
 		_currentAcceleration.x = 0
 		
 	if (moving.y == 0 and !SPEEDING_DOWN_Y.is_valid()):
 		SPEEDING_DOWN_Y = create_tween()
-		SPEEDING_DOWN_Y.tween_property(self, "velocity:y", 0, .5)
+		SPEEDING_DOWN_Y.tween_property(self, "velocity:y", 0, _decelerationTime)
 		_currentAcceleration.y = 0
 		
 
@@ -103,8 +107,8 @@ func Move(delta: float) -> void:
 	
 	if (!SPEEDING_DOWN_X.is_valid() || !SPEEDING_DOWN_Y.is_valid()):
 		velocity += _currentAcceleration
-		velocity.x = clamp(velocity.x, VELOCITY_X_CLAMP.x, VELOCITY_X_CLAMP.y)
-		velocity.y = clamp(velocity.y, VELOCITY_Y_CLAMP.x, VELOCITY_Y_CLAMP.y)
+		velocity.x = clamp(velocity.x, velocityXClamp.x, velocityXClamp.y)
+		velocity.y = clamp(velocity.y, velocityYClamp.x, velocityYClamp.y)
 
 	
 	#Play sound when moving

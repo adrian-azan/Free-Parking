@@ -5,7 +5,7 @@
 [ext_resource type="SpriteFrames" uid="uid://hogtsvj4k2bq" path="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_FRAMES.tres" id="3_4cgft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_667t4"]
-size = Vector2(15, 58)
+size = Vector2(15, 12)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 4
@@ -29,5 +29,5 @@ sprite_frames = ExtResource("3_4cgft")
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -13)
+position = Vector2(0.5, -11)
 shape = SubResource("RectangleShape2D_667t4")

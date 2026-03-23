@@ -19,11 +19,12 @@ metadata/_edit_group_ = true
 metadata/_edit_group_ = true
 
 [node name="PlayerCar" parent="PlayerAndCar" index="1"]
-VELOCITY_X_CLAMP = Vector2(-100, 100)
-VELOCITY_Y_CLAMP = Vector2(-100, 100)
+velocityXClamp = Vector2(-120, 120)
+velocityYClamp = Vector2(-120, 120)
 metadata/_edit_group_ = true
 
 [node name="PlayerCamera" parent="PlayerAndCar" index="2"]
+zoom = Vector2(2.825, 2.825)
 metadata/_edit_group_ = true
 
 [editable path="PlayerAndCar"]

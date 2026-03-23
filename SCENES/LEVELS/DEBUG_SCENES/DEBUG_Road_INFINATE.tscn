@@ -19,12 +19,12 @@ layer_0/tile_data = PackedInt32Array(-1507343, 65537, 0, -1441807, 65537, 0, -13
 
 [node name="PlayerCar" parent="PlayerAndCar" index="1"]
 wall_min_slide_angle = 2.0071287
-VELOCITY_X_CLAMP = Vector2(0, 1600)
-VELOCITY_Y_CLAMP = Vector2(-500, 500)
+velocityXClamp = Vector2(-1600, 1600)
+velocityYClamp = Vector2(-1600, 1600)
 _maxAcceleration = 300.0
 
 [node name="PlayerCamera" parent="PlayerAndCar" index="2"]
-zoom = Vector2(0.115, 0.115)
+zoom = Vector2(0.8, 0.8)
 
 [node name="End" type="Area2D" parent="."]
 collision_layer = 0

@@ -1,34 +1,34 @@
 extends Node2D
 
 var _inCar = true
-@onready var player = $Player
-@onready var playerCar = $PlayerCar
-@onready var camera = $PlayerCamera
+var DISTANCE_TO_ENTER_CAR: int
+@onready var _player = $Player
+@onready var _playerCar = $PlayerCar
+@onready var _camera = $PlayerCamera
+
 
 func _ready() -> void:
-	player.visible = false
-	camera.reparent(playerCar)
+	_player.visible = false
+	_camera.reparent(_playerCar)
 	
 
 func _physics_process(delta: float) -> void:
-	LabelOverlay.SetLabel(3, "%d" %[player.global_position.distance_to(playerCar.global_position)])
-
-	if (Input.is_action_just_pressed("SwitchCar") and player.global_position.distance_to(playerCar.global_position) < 50):
+	if (Input.is_action_just_pressed("SwitchCar") and _player.global_position.distance_to(_playerCar.global_position) < DISTANCE_TO_ENTER_CAR):
 		Switch()
 
 	if (_inCar):
-		player.global_position = playerCar.global_position
-		playerCar.Move(delta)
+		_player.global_position = _playerCar.global_position
+		_playerCar.Move(delta)
 	else:
-		player.Move(delta)
+		_player.Move(delta)
 
 func Switch():
-	player.visible = !player.visible
+	_player.visible = !_player.visible
 	_inCar = !_inCar
 	
 	if (_inCar):
-		camera.global_position = playerCar.global_position
-		camera.reparent(playerCar)
+		_camera.global_position = _playerCar.global_position
+		_camera.reparent(_playerCar)
 	else:
-		camera.global_position = player.global_position
-		camera.reparent(player)
+		_camera.global_position = _player.global_position
+		_camera.reparent(_player)

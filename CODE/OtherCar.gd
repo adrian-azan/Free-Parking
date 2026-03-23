@@ -3,8 +3,6 @@ class_name OtherCar extends CharacterBody2D
 @export var Velocity: Vector2
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	move_and_slide()
 

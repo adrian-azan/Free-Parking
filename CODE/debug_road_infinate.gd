@@ -17,10 +17,6 @@ func _ready():
 	
 	timer.connect("timeout", SpawnCars)
 	
-
-func _process(delta: float) -> void:
-	LabelOverlay.SetLabel(2, "%d" % [timer.time_left])
-
 func SpawnCars():
 	var newCar = (ResourceLoader.load("res://SCENES/OtherCar.tscn") as PackedScene).instantiate() as CharacterBody2D
 	newCar.velocity = player.velocity * .95 if player.velocity.x > 400 else Vector2(600,0)
