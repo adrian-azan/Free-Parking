@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Free Parking"
-run/main_scene="uid://cteugen0f40v5"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://osyhsf3pqpo8"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
