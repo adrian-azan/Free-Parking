@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn320agx8vdb7"]
+
+[ext_resource type="Texture2D" uid="uid://dpp1pn8pcbe0i" path="res://ART/SCREENS/test_screen_2.png" id="1_5bqly"]
+[ext_resource type="PackedScene" uid="uid://b2m047wdkfa5y" path="res://SCENES/Player.tscn" id="2_3g5pk"]
+[ext_resource type="Script" uid="uid://dbt1cvx5dqkwt" path="res://CODE/ParkingPath.gd" id="3_8ti05"]
+
+[sub_resource type="Curve2D" id="Curve2D_8ti05"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -240, 17, 0, 0, 0, 0, 253, 15)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ngalx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -240, 17, 0, 0, 0, 0, -85, 17)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_x8op7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -295, 3, 0, 0, 0, 0, -101, -183)
+}
+point_count = 2
+
+[node name="TheCity" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5bqly")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_3g5pk")]
+scale = Vector2(0.425, 0.425)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2.84, 2.84)
+
+[node name="ParkedCarsPaths" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="ParkedCarsPaths"]
+position = Vector2(6, -65)
+curve = SubResource("Curve2D_8ti05")
+script = ExtResource("3_8ti05")
+numberOfCars = 8
+spriteFrame = 3
+
+[node name="Path2D2" type="Path2D" parent="ParkedCarsPaths"]
+position = Vector2(20, 15)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("3_8ti05")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D3" type="Path2D" parent="ParkedCarsPaths"]
+position = Vector2(406, 20)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("3_8ti05")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D4" type="Path2D" parent="ParkedCarsPaths"]
+position = Vector2(65, 223)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("3_8ti05")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="Path2D5" type="Path2D" parent="ParkedCarsPaths"]
+position = Vector2(249, 225)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("3_8ti05")
+numberOfCars = 4
+spriteFrame = 2
