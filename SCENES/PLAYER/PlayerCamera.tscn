@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d15d4ja61f7ql"]
+
+[ext_resource type="Script" uid="uid://sbdnplihay1n" path="res://CODE/PLAYER/PlayerCamera.gd" id="1_qyi2c"]
+
+[node name="PlayerCamera" type="Camera2D"]
+zoom = Vector2(1.8, 1.8)
+script = ExtResource("1_qyi2c")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+update_rotation = false
+update_scale = false
