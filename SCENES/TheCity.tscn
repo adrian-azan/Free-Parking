@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cn320agx8vdb7"]
 
 [ext_resource type="Texture2D" uid="uid://dpp1pn8pcbe0i" path="res://ART/SCREENS/test_screen_2.png" id="1_5bqly"]
-[ext_resource type="PackedScene" uid="uid://b2m047wdkfa5y" path="res://SCENES/Player.tscn" id="2_3g5pk"]
-[ext_resource type="Script" uid="uid://dbt1cvx5dqkwt" path="res://CODE/ParkingPath.gd" id="3_8ti05"]
+[ext_resource type="PackedScene" uid="uid://b2m047wdkfa5y" path="res://SCENES/PLAYER/PlayerCar.tscn" id="2_3g5pk"]
+[ext_resource type="Script" path="res://CODE/ParkingPath.gd" id="3_8ti05"]
 
 [sub_resource type="Curve2D" id="Curve2D_8ti05"]
 _data = {
@@ -29,7 +29,7 @@ texture = ExtResource("1_5bqly")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_3g5pk")]
-scale = Vector2(0.425, 0.425)
+scale = Vector2(0.7, 0.7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2.84, 2.84)
