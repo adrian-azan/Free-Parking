@@ -54,7 +54,10 @@ var SPEEDING_DOWN_X: Tween
 var SPEEDING_DOWN_Y: Tween
 var _decelerationTime: float
 
-
+###
+# Stuff about the node
+###
+@onready var sprite: AnimatedSprite2D = $Sprite2D
 
 func _ready() -> void:
 	audio_player = $AudioStreamPlayer2D
@@ -119,6 +122,32 @@ func Move(delta: float) -> void:
 		audio_player.stop()
 	
 	
+	#Straight Left or Right
+	if moving.x == 1 and moving.y == 0:
+		sprite.frame = 3
+	if moving.x == -1 and moving.y == 0:
+		sprite.frame = 7
+		
+	#Straight Up or Down
+	if moving.y == 1 and moving.x == 0:
+		sprite.frame = 5
+	if moving.y == -1 and moving.x == 0:
+		sprite.frame = 1
+		
+	#Diagnols
+	#Sprite will only change to go diagnol after we've reached half of the max/min velocity in any direction
+	#DownRight
+	if (moving.y == 1 and moving.x == 1) and (velocity.y >= velocityYClamp.y / 2 and velocity.x >= velocityXClamp.y / 2):
+		sprite.frame = 4
+	#DownLeft
+	if (moving.y == 1 and moving.x == -1) and (velocity.y >= velocityYClamp.y / 2 and velocity.x <= velocityXClamp.x / 2):
+		sprite.frame = 6	
+	#UpRight
+	if moving.y == -1 and moving.x == 1 and (velocity.y <= velocityYClamp.x / 2 and velocity.x >= velocityXClamp.y / 2):
+		sprite.frame = 2
+	#UpLeft
+	if moving.y == -1 and moving.x == -1 and (velocity.y <= velocityYClamp.x / 2 and velocity.x <= velocityXClamp.x / 2):
+		sprite.frame = 0
+	
+	
 	move_and_slide()
-	if (velocity != Vector2.ZERO):
-		rotation = velocity.angle()
