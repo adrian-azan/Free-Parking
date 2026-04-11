@@ -9,6 +9,7 @@ var DISTANCE_TO_ENTER_CAR: int
 
 func _ready() -> void:
 	_player.visible = false
+	DISTANCE_TO_ENTER_CAR = 50
 	_camera.reparent(_playerCar)
 	
 
