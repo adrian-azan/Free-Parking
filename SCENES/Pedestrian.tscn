@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmq50wo7k3qsb"]
+
+[ext_resource type="Texture2D" uid="uid://cyynxeiiua682" path="res://ART/SPRITES/BigGuy.png" id="1_jpvea"]
+
+[node name="Pedestrian" type="PathFollow2D"]
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_jpvea")

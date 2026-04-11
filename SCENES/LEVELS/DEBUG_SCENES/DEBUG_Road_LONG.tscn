@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=4 uid="uid://lokg4hgy8cq2"]
+[gd_scene load_steps=7 format=4 uid="uid://lokg4hgy8cq2"]
 
 [ext_resource type="TileSet" uid="uid://d3g2ng3ggkaa1" path="res://ART/SPRITES/Prototype/PROTOTYPE_TILESET.tres" id="1_b78sd"]
 [ext_resource type="PackedScene" uid="uid://b1glff3w2n75m" path="res://SCENES/OffScreenAnimatedSprite.tscn" id="2_rf0jh"]
 [ext_resource type="PackedScene" uid="uid://b8bowafqutf4m" path="res://SCENES/PLAYER/PlayerCarManager.tscn" id="3_bq0n4"]
+[ext_resource type="Script" uid="uid://gohaicj304o5" path="res://CODE/PedestrianPath.gd" id="4_udqac"]
+[ext_resource type="Texture2D" uid="uid://cyynxeiiua682" path="res://ART/SPRITES/BigGuy.png" id="5_3kukn"]
+
+[sub_resource type="Curve2D" id="Curve2D_3kukn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 362, 190, 0, 0, 0, 0, -83, 184, 0, 0, 0, 0, -32, -41, 0, 0, 0, 0, 331, -14, 0, 0, 0, 0, 363, 189)
+}
+point_count = 5
 
 [node name="Root" type="Node2D"]
 
@@ -15,9 +23,23 @@ tile_set = ExtResource("1_b78sd")
 position = Vector2(-4, 44)
 
 [node name="PlayerAndCar" parent="." instance=ExtResource("3_bq0n4")]
-position = Vector2(-576, -122)
+position = Vector2(-276, 149)
+
+[node name="Player" parent="PlayerAndCar" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="PlayerCar" parent="PlayerAndCar" index="1"]
+metadata/_edit_lock_ = true
 
 [node name="PlayerCamera" parent="PlayerAndCar" index="2"]
 zoom = Vector2(1.05, 1.05)
+metadata/_edit_lock_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-220, 229)
+curve = SubResource("Curve2D_3kukn")
+script = ExtResource("4_udqac")
+sprite = ExtResource("5_3kukn")
+amount = 400
 
 [editable path="PlayerAndCar"]
