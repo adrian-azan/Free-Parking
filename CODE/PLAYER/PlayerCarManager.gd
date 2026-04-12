@@ -30,6 +30,8 @@ func Switch():
 	if (_inCar):
 		_camera.global_position = _playerCar.global_position
 		_camera.reparent(_playerCar)
+		_camera.zoom = Vector2(2,2)
 	else:
 		_camera.global_position = _player.global_position
 		_camera.reparent(_player)
+		_camera.zoom = Vector2(3,3)
