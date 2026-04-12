@@ -13,6 +13,10 @@ extends Path2D
 		amount = newValue
 		SetPedestrians()
 
+@export var zIndex: int:
+	set(newValue):
+		SetPedestrians()
+
 var pedestrians: Array
 var rng: RandomNumberGenerator
 
@@ -35,8 +39,9 @@ func SetPedestrians() -> void:
 	for i in range(0, amount):
 		var pedestrian = (ResourceLoader.load("res://SCENES/Pedestrian.tscn") as PackedScene).instantiate() as PathFollow2D
 		(pedestrian.get_node("Sprite2D") as Sprite2D).texture = sprite
-		(pedestrian.get_node("Sprite2D") as Sprite2D).position = Vector2(0,rng.randf_range(-20,20))
-		pedestrian.set_meta("speed", rng.randf_range(.01,.1))
+		(pedestrian.get_node("Sprite2D") as Sprite2D).position = Vector2(0,rng.randf_range(-5,5))
+		(pedestrian.get_node("Sprite2D") as Sprite2D).z_index = zIndex
+		pedestrian.set_meta("speed", rng.randf_range(.001,.01))
 		pedestrian.set_meta("direction", [-1,1].pick_random())
 		
 		add_child(pedestrian)		

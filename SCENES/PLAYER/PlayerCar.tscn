@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2m047wdkfa5y"]
 
 [ext_resource type="Script" uid="uid://c2fa32ayou81o" path="res://CODE/PLAYER/PlayerCar.gd" id="1_667t4"]
-[ext_resource type="SpriteFrames" uid="uid://cm4hblm2e0ri7" path="res://ART/SPRITES/Car-Player.tres" id="2_0aeyj"]
+[ext_resource type="SpriteFrames" uid="uid://cm4hblm2e0ri7" path="res://ART/SPRITES/Cars/Car-Player.tres" id="2_0aeyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cgft"]
 size = Vector2(41, 39)
 
 [node name="PlayerCar" type="CharacterBody2D"]
+collision_layer = 8
 collision_mask = 20
 motion_mode = 1
 wall_min_slide_angle = 0.7853982
