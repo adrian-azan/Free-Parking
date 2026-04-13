@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0krdx627cxde"
-path="res://.godot/imported/PROTOTYPE_SPRITE_SHEET.png-03334bc897d7f3636ae188a3af7231fa.ctex"
+uid="uid://dpfjtd01lens7"
+path="res://.godot/imported/FP-NPC-2.png-6c57b56b050615c64139e05170d1f766.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ART/SPRITES/Prototype/PROTOTYPE_SPRITE_SHEET.png"
-dest_files=["res://.godot/imported/PROTOTYPE_SPRITE_SHEET.png-03334bc897d7f3636ae188a3af7231fa.ctex"]
+source_file="res://ART/SPRITES/FP-NPC-2.png"
+dest_files=["res://.godot/imported/FP-NPC-2.png-6c57b56b050615c64139e05170d1f766.ctex"]
 
 [params]
 
