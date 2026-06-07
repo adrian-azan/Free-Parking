@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcr5qxou1hj38"]
+
+[ext_resource type="Texture2D" uid="uid://b88nrikilxls3" path="res://ART/SCREENS/fp-map-master-4.5.26.png" id="1_q120d"]
+[ext_resource type="PackedScene" uid="uid://b1glff3w2n75m" path="res://SCENES/OffScreenAnimatedSprite.tscn" id="2_7fndg"]
+[ext_resource type="PackedScene" uid="uid://b8bowafqutf4m" path="res://SCENES/PLAYER/PlayerCarManager.tscn" id="3_ppbjt"]
+
+[node name="Root" type="Node2D"]
+
+[node name="CityBG" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_q120d")
+
+[node name="OffScreenAnimatedSprite" parent="." instance=ExtResource("2_7fndg")]
+position = Vector2(-334, 743)
+
+[node name="PlayerAndCar" parent="." instance=ExtResource("3_ppbjt")]
+position = Vector2(-89, 1243)
+
+[node name="PlayerCamera" parent="PlayerAndCar" index="2"]
+zoom = Vector2(2, 2)
+
+[editable path="PlayerAndCar"]
