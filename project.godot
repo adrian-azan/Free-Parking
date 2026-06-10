@@ -84,3 +84,7 @@ sprint={
 2d_physics/layer_3="walls"
 2d_physics/layer_4="PlayerCar"
 2d_physics/layer_5="OtherCars"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

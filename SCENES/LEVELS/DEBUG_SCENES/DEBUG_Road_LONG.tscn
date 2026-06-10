@@ -1,10 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://lokg4hgy8cq2"]
+[gd_scene load_steps=28 format=3 uid="uid://lokg4hgy8cq2"]
 
 [ext_resource type="PackedScene" uid="uid://b8bowafqutf4m" path="res://SCENES/PLAYER/PlayerCarManager.tscn" id="3_bq0n4"]
+[ext_resource type="SpriteFrames" uid="uid://bwb35q6fncy7v" path="res://ART/SPRITES/FP-NPC-2-SPRITE_FRAMES.tres" id="4_3kukn"]
+[ext_resource type="SpriteFrames" uid="uid://bde1t3r1wl8ja" path="res://ART/SPRITES/FP-NPC-3-SPRITE_FRAMES.tres" id="4_b78sd"]
 [ext_resource type="Script" uid="uid://gohaicj304o5" path="res://CODE/PedestrianPath.gd" id="4_udqac"]
-[ext_resource type="Texture2D" uid="uid://cyynxeiiua682" path="res://ART/SPRITES/BigGuy.png" id="5_3kukn"]
 [ext_resource type="Texture2D" uid="uid://x7hcs73p5sjc" path="res://ART/SCREENS/fp-map-master-4.5.26.png" id="5_b78sd"]
 [ext_resource type="Script" uid="uid://dbt1cvx5dqkwt" path="res://CODE/ParkingPath.gd" id="6_b78sd"]
+[ext_resource type="PackedScene" uid="uid://c5sci6pj0liw1" path="res://SCENES/NPC.tscn" id="7_rf0jh"]
+[ext_resource type="SpriteFrames" uid="uid://daeunps6sikmn" path="res://ART/SPRITES/FP-NPC-1-SPRITE_FRAMES.tres" id="8_52nw4"]
 
 [sub_resource type="Curve2D" id="Curve2D_3kukn"]
 _data = {
@@ -141,15 +144,15 @@ position = Vector2(-239.89856, 227.01117)
 scale = Vector2(1.0173031, 1.0055866)
 curve = SubResource("Curve2D_3kukn")
 script = ExtResource("4_udqac")
-sprite = ExtResource("5_3kukn")
+sprite = Array[SpriteFrames]([ExtResource("4_b78sd"), ExtResource("4_3kukn")])
 amount = 352
 
 [node name="Path2D2" type="Path2D" parent="SideWalkPaths"]
-position = Vector2(-239.89856, 227.01117)
+position = Vector2(-239.89857, 228.01117)
 scale = Vector2(1.0173031, 1.0055866)
 curve = SubResource("Curve2D_b78sd")
 script = ExtResource("4_udqac")
-sprite = ExtResource("5_3kukn")
+sprite = Array[SpriteFrames]([ExtResource("4_b78sd"), ExtResource("4_3kukn")])
 amount = 20
 
 [node name="Path2D3" type="Path2D" parent="SideWalkPaths"]
@@ -157,21 +160,21 @@ position = Vector2(-416, 409)
 scale = Vector2(1.0173031, 1.0055866)
 curve = SubResource("Curve2D_rf0jh")
 script = ExtResource("4_udqac")
-sprite = ExtResource("5_3kukn")
+sprite = Array[SpriteFrames]([ExtResource("4_b78sd"), ExtResource("4_3kukn")])
 amount = 20
 
 [node name="Path2D4" type="Path2D" parent="SideWalkPaths"]
 position = Vector2(-1238, 1082)
 curve = SubResource("Curve2D_52nw4")
 script = ExtResource("4_udqac")
-sprite = ExtResource("5_3kukn")
+sprite = Array[SpriteFrames]([ExtResource("4_b78sd"), ExtResource("4_3kukn")])
 amount = 40
 
 [node name="Path2D5" type="Path2D" parent="SideWalkPaths"]
 position = Vector2(213, 1084)
 curve = SubResource("Curve2D_52nw4")
 script = ExtResource("4_udqac")
-sprite = ExtResource("5_3kukn")
+sprite = Array[SpriteFrames]([ExtResource("4_b78sd"), ExtResource("4_3kukn")])
 amount = 40
 
 [node name="SideWalkCollisons" type="Node2D" parent="."]
@@ -182,7 +185,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SideWalkCollisons/StaticBody2D"]
-position = Vector2(-803, 974)
+position = Vector2(-803, 973)
 polygon = PackedVector2Array(37, -15, 380, -372, 1738, -366, 1392, -8)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SideWalkCollisons/StaticBody2D"]
@@ -346,3 +349,9 @@ curve = SubResource("Curve2D_qohka")
 script = ExtResource("6_b78sd")
 numberOfCars = 7
 spriteFrame = 6
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Npc" parent="NPCs" instance=ExtResource("7_rf0jh")]
+position = Vector2(1, 904)
+sprite = ExtResource("8_52nw4")

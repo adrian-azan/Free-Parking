@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5sci6pj0liw1"]
+
+[ext_resource type="Script" uid="uid://dg6anbwkshbr8" path="res://CODE/NPC.gd" id="1_5alya"]
+[ext_resource type="SpriteFrames" uid="uid://daeunps6sikmn" path="res://ART/SPRITES/FP-NPC-1-SPRITE_FRAMES.tres" id="1_r5lfs"]
+
+[node name="Npc" type="Node2D"]
+script = ExtResource("1_5alya")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_r5lfs")
+animation = &"long_toke"

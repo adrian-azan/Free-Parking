@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmq50wo7k3qsb"]
+[gd_scene load_steps=3 format=3 uid="uid://cmq50wo7k3qsb"]
 
-[ext_resource type="Texture2D" uid="uid://cyynxeiiua682" path="res://ART/SPRITES/BigGuy.png" id="1_jpvea"]
+[ext_resource type="SpriteFrames" uid="uid://daeunps6sikmn" path="res://ART/SPRITES/FP-NPC-1-SPRITE_FRAMES.tres" id="1_jpvea"]
+[ext_resource type="Script" uid="uid://gi472jqnovb6" path="res://CODE/pedestrian.gd" id="1_nbi72"]
 
 [node name="Pedestrian" type="PathFollow2D"]
 rotates = false
+script = ExtResource("1_nbi72")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -500
-scale = Vector2(0.045, 0.045)
-texture = ExtResource("1_jpvea")
+sprite_frames = ExtResource("1_jpvea")
+animation = &"short_toke"

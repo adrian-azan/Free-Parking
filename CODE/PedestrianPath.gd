@@ -3,7 +3,7 @@ extends Path2D
 
 
 
-@export var sprite: CompressedTexture2D:
+@export var sprite: Array[SpriteFrames]:
 	set(newValue):
 		sprite = newValue
 		SetPedestrians()
@@ -38,10 +38,12 @@ func SetPedestrians() -> void:
 	
 	for i in range(0, amount):
 		var pedestrian = (ResourceLoader.load("res://SCENES/Pedestrian.tscn") as PackedScene).instantiate() as PathFollow2D
-		(pedestrian.get_node("Sprite2D") as Sprite2D).texture = sprite
-		(pedestrian.get_node("Sprite2D") as Sprite2D).position = Vector2(0,rng.randf_range(-5,5))
-		(pedestrian.get_node("Sprite2D") as Sprite2D).z_index = zIndex
-		pedestrian.set_meta("speed", rng.randf_range(.001,.01))
+		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).sprite_frames = sprite.pick_random()
+		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).position = Vector2(0,rng.randf_range(-5,5))
+		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).z_index = zIndex
+		create_tween().tween_callback(Callable.create((pedestrian.get_node("Sprite2D") as AnimatedSprite2D), "play")).set_delay(rng.randf_range(.1,2))
+		
+		pedestrian.set_meta("speed", rng.randf_range(.001,.005))
 		pedestrian.set_meta("direction", [-1,1].pick_random())
 		
 		add_child(pedestrian)		
