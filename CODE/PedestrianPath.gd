@@ -1,11 +1,9 @@
 @tool
 extends Path2D
 
-
-
-@export var sprite: Array[SpriteFrames]:
+@export var possibleSpriteFrames: Array[SpriteFrames]:
 	set(newValue):
-		sprite = newValue
+		possibleSpriteFrames = newValue
 		SetPedestrians()
 		
 @export var amount: int:
@@ -20,7 +18,6 @@ extends Path2D
 var pedestrians: Array
 var rng: RandomNumberGenerator
 
-
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
@@ -31,14 +28,15 @@ func _process(delta: float) -> void:
 
 func SetPedestrians() -> void:
 
+	pedestrians.clear()
 	for p in get_children():
 		p.queue_free()
 
 	rng = RandomNumberGenerator.new()
 	
 	for i in range(0, amount):
-		var pedestrian = (ResourceLoader.load("res://SCENES/Pedestrian.tscn") as PackedScene).instantiate() as PathFollow2D
-		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).sprite_frames = sprite.pick_random()
+		var pedestrian: PathFollow2D = (ResourceLoader.load("res://SCENES/Pedestrian.tscn") as PackedScene).instantiate()
+		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).sprite_frames = possibleSpriteFrames.pick_random()
 		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).position = Vector2(0,rng.randf_range(-5,5))
 		(pedestrian.get_node("Sprite2D") as AnimatedSprite2D).z_index = zIndex
 		create_tween().tween_callback(Callable.create((pedestrian.get_node("Sprite2D") as AnimatedSprite2D), "play")).set_delay(rng.randf_range(.1,2))
