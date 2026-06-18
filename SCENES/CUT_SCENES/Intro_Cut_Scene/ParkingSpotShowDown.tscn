@@ -1,0 +1,506 @@
+[gd_scene load_steps=25 format=3 uid="uid://n2vgr23b6x7r"]
+
+[ext_resource type="Script" uid="uid://do8jmorieya0p" path="res://CODE/parking_spot_show_down_v_2.gd" id="1_3w6e7"]
+[ext_resource type="Script" uid="uid://cvgn2lfoxplcw" path="res://CODE/TOOLS/LongCityMaker.gd" id="2_dcxei"]
+[ext_resource type="Texture2D" uid="uid://6r8it320w06g" path="res://ART/SPRITES/BlackSquare.png" id="3_kgxdt"]
+[ext_resource type="Script" uid="uid://c2fa32ayou81o" path="res://CODE/PLAYER/PlayerCar.gd" id="4_r3880"]
+[ext_resource type="SpriteFrames" uid="uid://cm4hblm2e0ri7" path="res://ART/SPRITES/Car-Player.tres" id="5_i445a"]
+[ext_resource type="AudioStream" uid="uid://dtgvgi85q5od2" path="res://ART/SOUND/ParkingSpace_StandOff_Cut.wav" id="6_furmf"]
+[ext_resource type="AudioStream" uid="uid://cotlelfplsw3u" path="res://ART/SOUND/(ASMR) Goofy dies in a car crash while listening to post Malone .mp3 (Re-upload).mp3" id="7_vgwbc"]
+[ext_resource type="Texture2D" uid="uid://dpp1pn8pcbe0i" path="res://ART/SCREENS/test_screen_2.png" id="8_tbp7j"]
+[ext_resource type="Script" uid="uid://dbt1cvx5dqkwt" path="res://CODE/ParkingPath.gd" id="9_8lsrd"]
+
+[sub_resource type="Curve2D" id="Curve2D_15p7q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10000, 0)
+}
+point_count = 2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cgtm2"]
+normal_texture = ExtResource("3_kgxdt")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cgft"]
+size = Vector2(41, 39)
+
+[sub_resource type="Animation" id="Animation_7vk0d"]
+resource_name = "PlayerSpotShowDown"
+length = 123.4315
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 11.866667, 25.133333, 42.733334, 43.566666, 48.266666, 49.766666, 52.433334, 54, 68.76667, 69.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.41, 0.45, 1.0, 2.2, 2.3, 0.4, 0.41, 0.41, 0.42, 0.42, 0.44]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.666667,
+"stream": ExtResource("6_furmf")
+}, {
+"end_offset": 0.0,
+"start_offset": 7.138,
+"stream": ExtResource("7_vgwbc")
+}],
+"times": PackedFloat32Array(5.9, 79.13333)
+}
+tracks/2/use_blend = true
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(44.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Phase2"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path2D/PathFollow2D/Camera2D/Sprite2D:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6.3333335, 6.6, 6.91279, 9.209242, 9.475908, 9.788698, 12.443022, 13.366667, 14.095718, 43.29532, 43.466667, 43.7, 48.333332, 48.533333, 49.366665, 52.445343, 52.61201, 53.5, 60.582886, 60.866665, 61.666668, 65.63334, 65.8, 66.933334, 68.73333, 68.9, 69.833336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0.8, 0.7529412, 0.8745098), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0.8, 0.7529412, 0.83137256), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0.21568628, 0.20392157, 0.8509804), Color(0.12616917, 0.1457003, 0.14012414, 0.8), Color(0.12616917, 0.1457003, 0.14012414, 0.8), Color(0.49398828, 0.54161114, 0.53198004, 0.8), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0.8, 0.7529412, 0.23529412), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0.8, 0.7529412, 0.23529412), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.57254905, 0.043137256, 0, 0.31764707), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.57254905, 0.043137256, 0, 0.31764707), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0.8, 0.7529412, 0.23529412), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene2/Camera2D:zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(50.333332, 51.933334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.2, 2.2), Vector2(2.3, 2.3)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene2/Camera2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(51.3, 52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(299, 747), Vector2(400, 747)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene2/Path2D2/PathFollow2D:progress_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(60.1, 60.333332, 61.933334, 65.333336, 67.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.3, 0.7, 0.72, 0.72, 0.78]
+}
+
+[sub_resource type="Animation" id="Animation_w17b1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.325]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Camera2D/Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Scene2/Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.33, 1.33)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Scene2/Camera2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(299, 747)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Scene2/Path2D2/PathFollow2D:progress_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.55039465]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pftqh"]
+_data = {
+&"PlayerSpotShowDown": SubResource("Animation_7vk0d"),
+&"RESET": SubResource("Animation_w17b1")
+}
+
+[sub_resource type="Environment" id="Environment_hi8rs"]
+background_mode = 1
+background_energy_multiplier = 3.2
+ambient_light_energy = 3.25
+fog_enabled = true
+fog_light_energy = 6.33
+fog_sun_scatter = 0.12
+fog_density = 0.6052
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.8815
+
+[sub_resource type="Curve2D" id="Curve2D_tg35h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 944, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8ti05"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -240, 17, 0, 0, 0, 0, 253, 15)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ngalx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -240, 17, 0, 0, 0, 0, -85, 17)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_x8op7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -295, 3, 0, 0, 0, 0, -101, -183)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cgtm2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -240, 17, 0, 0, 0, 0, -111, 18)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_cecft"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 6, 14, 0, 0, 0, 0, 294, 16)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_mv8lk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -363, 3)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7uba"]
+size = Vector2(41, 39)
+
+[node name="ParkingSpotShowDown" type="Node2D"]
+script = ExtResource("1_3w6e7")
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_15p7q")
+script = ExtResource("2_dcxei")
+numberOfCars = 100
+distance = 500
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_15p7q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+zoom = Vector2(3.38, 3.38)
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Camera2D"]
+z_index = 480
+scale = Vector2(2000, 2000)
+texture = SubResource("CanvasTexture_cgtm2")
+
+[node name="PlayerCar" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+z_index = 345
+collision_mask = 20
+motion_mode = 1
+wall_min_slide_angle = 0.7853982
+script = ExtResource("4_r3880")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/PlayerCar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/PlayerCar"]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_4cgft")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/PlayerCar"]
+sprite_frames = ExtResource("5_i445a")
+frame = 3
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pftqh")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hi8rs")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 3.325
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="Scene2" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Scene2"]
+position = Vector2(-207, 777)
+curve = SubResource("Curve2D_tg35h")
+
+[node name="TheCity" type="Node2D" parent="Scene2"]
+position = Vector2(0, 780)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene2/TheCity"]
+texture = ExtResource("8_tbp7j")
+metadata/_edit_lock_ = true
+
+[node name="ParkedCarsPaths" type="Node2D" parent="Scene2/TheCity"]
+
+[node name="Path2D" type="Path2D" parent="Scene2/TheCity/ParkedCarsPaths"]
+position = Vector2(6, -65)
+curve = SubResource("Curve2D_8ti05")
+script = ExtResource("9_8lsrd")
+numberOfCars = 8
+spriteFrame = 3
+
+[node name="Path2D2" type="Path2D" parent="Scene2/TheCity/ParkedCarsPaths"]
+position = Vector2(20, 15)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("9_8lsrd")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D3" type="Path2D" parent="Scene2/TheCity/ParkedCarsPaths"]
+position = Vector2(406, 20)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("9_8lsrd")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D4" type="Path2D" parent="Scene2/TheCity/ParkedCarsPaths"]
+position = Vector2(65, 223)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("9_8lsrd")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="Path2D5" type="Path2D" parent="Scene2/TheCity/ParkedCarsPaths"]
+position = Vector2(249, 225)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("9_8lsrd")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="TheCity2" type="Node2D" parent="Scene2"]
+position = Vector2(512, 780)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene2/TheCity2"]
+texture = ExtResource("8_tbp7j")
+metadata/_edit_lock_ = true
+
+[node name="ParkedCarsPaths" type="Node2D" parent="Scene2/TheCity2"]
+
+[node name="Path2D" type="Path2D" parent="Scene2/TheCity2/ParkedCarsPaths"]
+position = Vector2(6, -65)
+curve = SubResource("Curve2D_cgtm2")
+script = ExtResource("9_8lsrd")
+numberOfCars = 8
+spriteFrame = 3
+
+[node name="Path2D6" type="Path2D" parent="Scene2/TheCity2/ParkedCarsPaths"]
+position = Vector2(6, -65)
+curve = SubResource("Curve2D_cecft")
+script = ExtResource("9_8lsrd")
+numberOfCars = 5
+spriteFrame = 3
+
+[node name="Path2D2" type="Path2D" parent="Scene2/TheCity2/ParkedCarsPaths"]
+position = Vector2(20, 15)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("9_8lsrd")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D3" type="Path2D" parent="Scene2/TheCity2/ParkedCarsPaths"]
+position = Vector2(406, 20)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("9_8lsrd")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D4" type="Path2D" parent="Scene2/TheCity2/ParkedCarsPaths"]
+position = Vector2(65, 223)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("9_8lsrd")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="Path2D5" type="Path2D" parent="Scene2/TheCity2/ParkedCarsPaths"]
+position = Vector2(249, 225)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("9_8lsrd")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="TheCity3" type="Node2D" parent="Scene2"]
+position = Vector2(1021, 780)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene2/TheCity3"]
+texture = ExtResource("8_tbp7j")
+metadata/_edit_lock_ = true
+
+[node name="ParkedCarsPaths" type="Node2D" parent="Scene2/TheCity3"]
+
+[node name="Path2D" type="Path2D" parent="Scene2/TheCity3/ParkedCarsPaths"]
+position = Vector2(6, -65)
+curve = SubResource("Curve2D_cgtm2")
+script = ExtResource("9_8lsrd")
+numberOfCars = 8
+spriteFrame = 3
+
+[node name="Path2D6" type="Path2D" parent="Scene2/TheCity3/ParkedCarsPaths"]
+position = Vector2(6, -65)
+curve = SubResource("Curve2D_cecft")
+script = ExtResource("9_8lsrd")
+numberOfCars = 5
+spriteFrame = 3
+
+[node name="Path2D2" type="Path2D" parent="Scene2/TheCity3/ParkedCarsPaths"]
+position = Vector2(20, 15)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("9_8lsrd")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D3" type="Path2D" parent="Scene2/TheCity3/ParkedCarsPaths"]
+position = Vector2(406, 20)
+curve = SubResource("Curve2D_ngalx")
+script = ExtResource("9_8lsrd")
+numberOfCars = 3
+spriteFrame = 3
+
+[node name="Path2D4" type="Path2D" parent="Scene2/TheCity3/ParkedCarsPaths"]
+position = Vector2(65, 223)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("9_8lsrd")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="Path2D5" type="Path2D" parent="Scene2/TheCity3/ParkedCarsPaths"]
+position = Vector2(249, 225)
+curve = SubResource("Curve2D_x8op7")
+script = ExtResource("9_8lsrd")
+numberOfCars = 4
+spriteFrame = 2
+
+[node name="Camera2D" type="Camera2D" parent="Scene2"]
+position = Vector2(299, 747)
+zoom = Vector2(1.33, 1.33)
+
+[node name="Path2D2" type="Path2D" parent="Scene2"]
+position = Vector2(898, 775)
+curve = SubResource("Curve2D_mv8lk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene2/Path2D2"]
+position = Vector2(-199.79419, 1.6511917)
+rotation = 3.1333284
+progress = 199.80002
+
+[node name="PlayerCar" type="CharacterBody2D" parent="Scene2/Path2D2/PathFollow2D"]
+rotation = -3.1333284
+collision_mask = 20
+motion_mode = 1
+wall_min_slide_angle = 0.7853982
+script = ExtResource("4_r3880")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Scene2/Path2D2/PathFollow2D/PlayerCar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene2/Path2D2/PathFollow2D/PlayerCar"]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_l7uba")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Scene2/Path2D2/PathFollow2D/PlayerCar"]
+sprite_frames = ExtResource("5_i445a")
+frame = 7
+metadata/_edit_lock_ = true
