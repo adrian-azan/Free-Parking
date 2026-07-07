@@ -66,7 +66,7 @@ func _ready() -> void:
 	SPEEDING_DOWN_Y = create_tween()
 	SPEEDING_DOWN_X.kill()
 	SPEEDING_DOWN_Y.kill()
-	_decelerationTime = .5
+	_decelerationTime = .2
 	
 	_maxAcceleration = 40.0 if _maxAcceleration == 0 else _maxAcceleration;
 	_currentAcceleration = Vector2(0,0)
