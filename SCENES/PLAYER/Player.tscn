@@ -14,9 +14,9 @@ script = ExtResource("1_667t4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(71, 34)
-scale = Vector2(0.022165263, 0.021901375)
+scale = Vector2(0.0221653, 0.0219014)
 texture = ExtResource("1_esb2h")
-offset = Vector2(-3066.6667, -2466.6665)
+offset = Vector2(-3066.67, -2466.67)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
