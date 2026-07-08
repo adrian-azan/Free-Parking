@@ -13,6 +13,7 @@ extends Path2D
 
 @export var zIndex: int:
 	set(newValue):
+		zIndex = newValue;
 		SetPedestrians()
 
 var pedestrians: Array
