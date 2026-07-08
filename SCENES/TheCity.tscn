@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpp1pn8pcbe0i" path="res://ART/SCREENS/test_screen_2.png" id="1_5bqly"]
 [ext_resource type="PackedScene" uid="uid://b2m047wdkfa5y" path="res://SCENES/PLAYER/PlayerCar.tscn" id="2_3g5pk"]
-[ext_resource type="Script" path="res://CODE/ParkingPath.gd" id="3_8ti05"]
+[ext_resource type="Script" uid="uid://dbt1cvx5dqkwt" path="res://CODE/ParkingPath.gd" id="3_8ti05"]
 
 [sub_resource type="Curve2D" id="Curve2D_8ti05"]
 _data = {

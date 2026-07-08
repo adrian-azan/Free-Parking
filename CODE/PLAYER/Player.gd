@@ -7,7 +7,7 @@ func Move(delta: float) -> void:
 	velocity.x = Input.get_axis("move_left", "move_right") * _speed
 			
 	#TODO: A sprint with energy would be good				
-	if Input.is_action_pressed("Sprint"):
+	if Input.is_action_pressed("sprint"):
 		velocity *= 1.5
 			
 	

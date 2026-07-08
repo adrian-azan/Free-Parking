@@ -73,8 +73,8 @@ func _ready() -> void:
 	_acceleration = _maxAcceleration / 2;
 	
 	# For Christian -> This is so that if we don't set the value in the editor, then -250,250 is the default velocity value
-	velocityXClamp = Vector2(-250,250) if velocityXClamp == Vector2.ZERO else velocityXClamp
-	velocityYClamp = Vector2(-250,250) if velocityYClamp == Vector2.ZERO else velocityYClamp
+	velocityXClamp = Vector2(-100,100) if velocityXClamp == Vector2.ZERO else velocityXClamp
+	velocityYClamp = Vector2(-100,100) if velocityYClamp == Vector2.ZERO else velocityYClamp
 
 func Move(delta: float) -> void:
 
