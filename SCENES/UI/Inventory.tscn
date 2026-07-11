@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqmhtl0w1htan"]
+
+[ext_resource type="Script" uid="uid://dy5ic6x8a2e26" path="res://CODE/inventory_3d_view.gd" id="1_4yy0w"]
+[ext_resource type="PackedScene" uid="uid://bknalca0lh2y7" path="res://SCENES/UI/Inventory3DView.tscn" id="1_ssyps"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4yy0w"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_4yy0w")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Inventory3dView" parent="SubViewport" instance=ExtResource("1_ssyps")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ViewportTexture_4yy0w")

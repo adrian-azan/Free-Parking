@@ -6,9 +6,9 @@ var minZoom = Vector2(.1, .1)
 var zoomRate = Vector2.ONE / 10
 
 func _ready() -> void:
-	$RemoteTransform2D.remote_path = LabelOverlay.get_path()
+	$RemoteTransform2D.remote_path = get_node("../Inventory").get_path()
 	
-
+#TODO: This is a debug feature so we should remove at some point
 func _process(delta: float) -> void:	
 	if (Input.is_action_just_pressed("ZoomIn")):
 		zoom += zoomRate

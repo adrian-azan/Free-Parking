@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8bowafqutf4m"]
+[gd_scene load_steps=6 format=3 uid="uid://b8bowafqutf4m"]
 
 [ext_resource type="PackedScene" uid="uid://bpjligfu41j2m" path="res://SCENES/PLAYER/Player.tscn" id="1_6o1a4"]
 [ext_resource type="Script" uid="uid://bonbv7uweysv5" path="res://CODE/PLAYER/PlayerCarManager.gd" id="1_7jn3t"]
 [ext_resource type="PackedScene" uid="uid://b2m047wdkfa5y" path="res://SCENES/PLAYER/PlayerCar.tscn" id="2_7jn3t"]
 [ext_resource type="PackedScene" uid="uid://d15d4ja61f7ql" path="res://SCENES/PLAYER/PlayerCamera.tscn" id="4_4rr1o"]
+[ext_resource type="PackedScene" uid="uid://cqmhtl0w1htan" path="res://SCENES/UI/Inventory.tscn" id="5_u01nu"]
 
 [node name="PlayerAndCar" type="Node2D"]
-position = Vector2(64, 17)
 script = ExtResource("1_7jn3t")
+
+[node name="Inventory" parent="." instance=ExtResource("5_u01nu")]
+visible = false
+z_index = 1000
+scale = Vector2(0.43, 0.43)
 
 [node name="Player" parent="." instance=ExtResource("1_6o1a4")]
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_7jn3t")]
 
 [node name="PlayerCamera" parent="." instance=ExtResource("4_4rr1o")]
-position = Vector2(-63, -17)
-zoom = Vector2(2, 2)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bknalca0lh2y7"]
+
+[sub_resource type="Curve3D" id="Curve3D_eyfr1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5, 0, 0, 5, 0, 0, -5, 0, 0, 0, 0, 4.44, 0, 0, 0, 0, 0, 0, -5, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Environment" id="Environment_hn4d6"]
+background_mode = 1
+background_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+background_energy_multiplier = 0.0
+
+[node name="Inventory3dView" type="Node3D"]
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.095, 0.292)
+curve = SubResource("Curve3D_eyfr1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.360383)
+environment = SubResource("Environment_hn4d6")
+fov = 116.5
+
+[node name="ObtainedItems" type="Node3D" parent="."]

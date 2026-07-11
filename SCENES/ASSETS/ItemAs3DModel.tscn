@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d01sc8kd8g08h"]
+
+[ext_resource type="Script" uid="uid://dp78qgu8ivwwq" path="res://CODE/item_as_3d_model.gd" id="1_gvpn6"]
+
+[node name="ItemAs3dModel" type="Node3D"]
+transform = Transform3D(1.0000892, 0, 0, 0, 0.34204587, 0.9397018, 0, -0.9397633, 0.3420235, 0, 0.21, 0)
+script = ExtResource("1_gvpn6")
+ON = true
+selectedModel = 1
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.923808, 0.14332664, -0.354765, -1.4901161e-08, 0.92712116, 0.37456116, 0.3826538, -0.346076, 0.8566143, -0.6470716, 0.97282374, 1.5661012)
+light_energy = 14.826
+spot_range = 3.5439494
+spot_angle = 15.549306
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.87875473, -0.16316655, 0.44831753, -7.4505806e-08, -0.93962723, -0.3419801, 0.4771248, 0.30056307, -0.82582957, 0.8167605, -1.2802951, -2.1208155)
+light_energy = 14.826
+spot_range = 3.5439494
+spot_angle = 15.549306
