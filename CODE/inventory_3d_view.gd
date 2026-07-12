@@ -15,7 +15,8 @@ func _ready() -> void:
 	itemAs3DScene = ResourceLoader.load("res://SCENES/ASSETS/ItemAs3DModel.tscn")
 
 	SetScene()
-
+		
+	
 
 func Move(delta: float) -> void:
 	var moving: Vector2 = Vector2.ZERO	

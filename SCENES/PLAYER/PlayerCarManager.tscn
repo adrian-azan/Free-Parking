@@ -10,12 +10,19 @@
 script = ExtResource("1_7jn3t")
 
 [node name="Inventory" parent="." instance=ExtResource("5_u01nu")]
-visible = false
 z_index = 1000
-scale = Vector2(0.43, 0.43)
+position = Vector2(0, 126.36)
+scale = Vector2(0.225, 0.225)
 
 [node name="Player" parent="." instance=ExtResource("1_6o1a4")]
 
 [node name="PlayerCar" parent="." instance=ExtResource("2_7jn3t")]
 
 [node name="PlayerCamera" parent="." instance=ExtResource("4_4rr1o")]
+zoom = Vector2(1.5, 1.5)
+
+[node name="InventoryTransform" parent="PlayerCamera" index="0"]
+position = Vector2(0, 126.36)
+remote_path = NodePath("../../Inventory")
+
+[editable path="PlayerCamera"]

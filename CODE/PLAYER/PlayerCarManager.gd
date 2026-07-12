@@ -28,10 +28,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("show_inventory"):
 		if _playerState == PlayerState.IN_INVENTORY:
-			_inventory.visible = false
+			_camera.ShowInventory()
 			_playerState = PlayerState.IN_CAR
 		elif _playerState == PlayerState.IN_CAR:
-			_inventory.visible = true
+			_camera.ShowInventory()
 			_playerState = PlayerState.IN_INVENTORY
 
 	if _playerState == PlayerState.IN_INVENTORY:
